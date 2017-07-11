@@ -1,7 +1,7 @@
 {
   "name": "ngo-base",
   "version": "0.0.0-development",
-  "description": "Common services for working with Fabric8 Work Item Tracker",
+  "description": "Common services for working with Openfact Work Item Tracker",
   "main": "bundles/ngo-base.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -31,16 +31,8 @@
   "license": "Apache-2.0",
   "contributors": [
     {
-      "name": "Joshua Wilson",
-      "email": "josh@redhat.com"
-    },
-    {
-      "name": "Pete Muir",
-      "email": "pmuir@bleepbleep.org.uk"
-    },
-    {
-      "name": "Vineet Reynolds Pereira",
-      "email": "Vineet.Reynolds@gmail.com"
+      "name": "Carlos Feria",
+      "email": "carlosthe19916@sistcoop.com"
     }
   ],
   "keywords": [
