@@ -27,7 +27,7 @@
     "transpile": "./node_modules/.bin/ngc",
     "semantic-release": "semantic-release pre && npm run build && cp -r .git dist && npm publish dist/ && semantic-release post",
     "watch:library": "gulp watch",
-    "dist": "cd lib && npm publish"
+    "dist": "npm run build && cd dist && npm publish"
   },
   "license": "Apache-2.0",
   "contributors": [
