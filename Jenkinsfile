@@ -6,13 +6,13 @@ def repo = 'ngo-base'
 fabric8UINode{
   ws {
     git "https://github.com/${org}/${repo}.git"
-    readTrusted 'release.groovy'
+//    readTrusted 'release.groovy'
     sh "git remote set-url origin git@github.com:${org}/${repo}.git"
-    def pipeline = load 'release.groovy'
+//    def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
       container('ui'){
-        pipeline.ci()
+//        pipeline.ci()
       }
     } else if (utils.isCD()){
       def branch
@@ -22,7 +22,7 @@ fabric8UINode{
 
       def published
       container('ui'){
-        published = pipeline.cd(branch)
+//        published = pipeline.cd(branch)
       }
 
       def releaseVersion
@@ -31,7 +31,7 @@ fabric8UINode{
       }
 
       if (published){
-        pipeline.updateDownstreamProjects(releaseVersion)
+//        pipeline.updateDownstreamProjects(releaseVersion)
       }
     }
   }
