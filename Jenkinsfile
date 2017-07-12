@@ -6,7 +6,7 @@ def repo = 'ngo-base'
 fabric8UINode{
   ws {
     git "https://github.com/${org}/${repo}.git"
-    /*readTrusted 'release.groovy'
+    readTrusted 'release.groovy'
     sh "git remote set-url origin git@github.com:${org}/${repo}.git"
     def pipeline = load 'release.groovy'
 
@@ -33,6 +33,6 @@ fabric8UINode{
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
       }
-    }*/
+    }
   }
 }
