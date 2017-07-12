@@ -32,7 +32,7 @@ fabric8UINode{
 
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
-      }*/
-    }
+      }
+    }*/
   }
 }
