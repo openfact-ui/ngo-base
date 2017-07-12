@@ -37,3 +37,4 @@ fabric8UINode{
   }
 }
 
+org.jenkinsci.plugins.permissivescriptsecurity.PermissiveWhitelist.enabled=true
