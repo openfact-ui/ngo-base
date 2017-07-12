@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-/*def ci (){
+def ci (){
     stage('build'){
         sh 'npm install'
     }
@@ -49,4 +49,4 @@ def updateDownstreamProjects(v){
         autoMerge = true
     }
 }
-return this*/
+return this
