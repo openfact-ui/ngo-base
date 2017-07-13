@@ -16,9 +16,9 @@ node{
       }
     } else if (utils.isCD()){
       def branch
-      //container('ui'){
+      container('nodejs'){
           branch = utils.getBranch()
-      //}
+      }
 
       def published
       //container('ui'){
