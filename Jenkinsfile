@@ -16,9 +16,9 @@ node{
       }
     } else if (utils.isCD()){
       def branch
-      container('maven'){
+      //container('ui'){
           branch = utils.getBranch()
-      }
+      //}
 
       /*def published
       container('ui'){
