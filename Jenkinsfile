@@ -10,11 +10,11 @@ node{
     sh "git remote set-url origin git@github.com:${org}/${repo}.git"
     def pipeline = load 'release.groovy'
 
-    /*if (utils.isCI()){
+    if (utils.isCI()){
       container('ui'){
         pipeline.ci()
       }
-    } else if (utils.isCD()){
+    }/* else if (utils.isCD()){
       def branch
       container('ui'){
           branch = utils.getBranch()
