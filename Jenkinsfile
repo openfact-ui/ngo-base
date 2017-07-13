@@ -4,13 +4,13 @@ def utils = new io.fabric8.Utils()
 def org = 'openfact-ui'
 def repo = 'ngo-base'
 node{
-  //ws {
+  ws {
     git "https://github.com/${org}/${repo}.git"
     readTrusted 'release.groovy'
     sh "git remote set-url origin git@github.com:${org}/${repo}.git"
     def pipeline = load 'release.groovy'
 
-    if (utils.isCI()){
+    /*if (utils.isCI()){
       container('ui'){
         pipeline.ci()
       }
@@ -33,6 +33,6 @@ node{
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
       }
-    }
-  //}
+    }*/
+  }
 }
