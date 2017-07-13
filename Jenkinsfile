@@ -16,7 +16,7 @@ node{
       }
     } else if (utils.isCD()){
       def branch
-      container(){
+      container('maven'){
           branch = utils.getBranch()
       }
 
