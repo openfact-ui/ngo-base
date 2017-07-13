@@ -20,19 +20,19 @@ node{
           branch = utils.getBranch()
       //}
 
-      /*def published
-      container('ui'){
+      def published
+      //container('ui'){
         published = pipeline.cd(branch)
-      }
+      //}
 
       def releaseVersion
-      container('ui'){
+      //container('ui'){
           releaseVersion = utils.getLatestVersionFromTag()
-      }
+      //}
 
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
-      }*/
+      }
     }
   }
 }
