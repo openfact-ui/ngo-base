@@ -14,9 +14,9 @@ node{
       container('ui'){
         pipeline.ci()
       }
-    }/* else if (utils.isCD()){
+    } else if (utils.isCD()){
       def branch
-      container('ui'){
+      /*container('ui'){
           branch = utils.getBranch()
       }
 
@@ -32,7 +32,7 @@ node{
 
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
-      }
-    }*/
+      }*/
+    }
   }
 }
