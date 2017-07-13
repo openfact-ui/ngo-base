@@ -16,11 +16,11 @@ node{
       }
     } else if (utils.isCD()){
       def branch
-      /*container('ui'){
+      container(){
           branch = utils.getBranch()
       }
 
-      def published
+      /*def published
       container('ui'){
         published = pipeline.cd(branch)
       }
