@@ -11,12 +11,12 @@ node{
     def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
-      container('ui'){
+      //container('ui'){
         pipeline.ci()
-      }
+      //}
     } else if (utils.isCD()){
       def branch
-      //container('nodejs'){
+      //container('ui'){
           branch = utils.getBranch()
       //}
 
