@@ -11,24 +11,24 @@ node{
     def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
-      //container('ui'){
+      container('ui'){
         pipeline.ci()
-      //}
+      }
     } else if (utils.isCD()){
       def branch
-      //container('ui'){
+      container('ui'){
           branch = utils.getBranch()
-      //}
+      }
 
       def published
-      //container('ui'){
+      container('ui'){
         published = pipeline.cd(branch)
-      //}
+      }
 
       def releaseVersion
-      //container('ui'){
+      container('ui'){
           releaseVersion = utils.getLatestVersionFromTag()
-      //}
+      }
 
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
