@@ -12,22 +12,25 @@ nodejsNode{
     def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
-      container('ui'){
+      //container('ui'){
+      container('nodejs'){
         pipeline.ci()
       }
     } else if (utils.isCD()){
       def branch
-      container('ui'){
+      //container('ui'){
+      container('nodejs'){
           branch = utils.getBranch()
       }
 
       def published
-      container('ui'){
+      //container('ui'){
         published = pipeline.cd(branch)
       }
 
       def releaseVersion
-      container('ui'){
+      //container('ui'){
+      container('nodejs'){
           releaseVersion = utils.getLatestVersionFromTag()
       }
 
