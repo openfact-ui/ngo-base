@@ -45,7 +45,7 @@ def updateDownstreamProjects(v){
                 'openfact-ui/openfact-npm-dependencies'
         ]
         version = v
-        //containerName = 'ui'
+        containerName = 'ui'
         containerName = 'nodejs'
         autoMerge = true
     }
