@@ -3,7 +3,7 @@
 def utils = new io.fabric8.Utils()
 def org = 'openfact-ui'
 def repo = 'ngo-base'
-//fabric8UINode{
+
 nodejsNode{
   ws {
     git "https://github.com/${org}/${repo}.git"
@@ -12,24 +12,21 @@ nodejsNode{
     def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
-      //container('ui'){
       container('nodejs'){
         pipeline.ci()
       }
     } else if (utils.isCD()){
       def branch
-      //container('ui'){
       container('nodejs'){
           branch = utils.getBranch()
       }
 
       def published
-      //container('ui'){
+      container('nodejs'){
         published = pipeline.cd(branch)
       }
 
       def releaseVersion
-      //container('ui'){
       container('nodejs'){
           releaseVersion = utils.getLatestVersionFromTag()
       }
