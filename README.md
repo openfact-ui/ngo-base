@@ -3,7 +3,7 @@
 [![Build Status](https://ci.centos.org/buildStatus/icon?job=devtools-ngo-base-npm-publish-build-master)](https://ci.centos.org/view/Devtools/job/devtools-ngo-base-npm-publish-build-master/)
 [![npm version](https://badge.fury.io/js/ngo-base.svg)](https://badge.fury.io/js/ngo-base)
 
-Common services for working with the Fabric8 Work Item Tracker.
+Common services for working with the Openfact Work Item Tracker.
 
 The system we build is composed of several components existing in separate repos but
 still needing access to common information, like how to manage spaces. These services were 

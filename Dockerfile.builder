@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER "Konrad Kleine <kkleine@redhat.com>"
+MAINTAINER "Carlos Feria <carlosthe19916@sistcoop.com>"
 ENV LANG=en_US.utf8
 
 # load the gpg keys
