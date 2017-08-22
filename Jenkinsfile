@@ -17,17 +17,11 @@ nodejsNode{
       }
     } else if (utils.isCD()){
       def branch
-      container('nodejs'){
-          branch = utils.getBranch()
-      }
-
       def published
-      container('nodejs'){
-        published = pipeline.cd(branch)
-      }
-
       def releaseVersion
       container('nodejs'){
+          branch = utils.getBranch()
+          published = pipeline.cd(branch)
           releaseVersion = utils.getLatestVersionFromTag()
       }
 
