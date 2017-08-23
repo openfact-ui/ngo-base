@@ -1,55 +1,37 @@
 #!/usr/bin/groovy
 @Library('github.com/fabric8io/fabric8-pipeline-library@master')
-
-def failIfNoTests = ""
-try {
-  failIfNoTests = ITEST_FAIL_IF_NO_TEST
-} catch (Throwable e) {
-  failIfNoTests = "false"
-}
-
-def localItestPattern = ""
-try {
-  localItestPattern = ITEST_PATTERN
-} catch (Throwable e) {
-  localItestPattern = "*KT"
-}
-
-
-def versionPrefix = ""
-try {
-  versionPrefix = VERSION_PREFIX
-} catch (Throwable e) {
-  versionPrefix = "1.0"
-}
-
-def canaryVersion = "${versionPrefix}.${env.BUILD_NUMBER}"
 def utils = new io.fabric8.Utils()
-def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
+def org = 'openfact-ui'
+def repo = 'ngo-base'
+fabric8UINode{
+  ws {
+    git "https://github.com/${org}/${repo}.git"
+    readTrusted 'release.groovy'
+    sh "git remote set-url origin git@github.com:${org}/${repo}.git"
+    def pipeline = load 'release.groovy'
 
-mavenNode{
-  checkout scm
-  if (utils.isCI()){
-    
-    mavenCI{}
-    
-  } else if (utils.isCD()){
-  
-    echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
-    container(name: 'maven') {
-
-      stage('Build Release'){
-        mavenCanaryRelease {
-          version = canaryVersion
-        }
+    if (utils.isCI()){
+      container('ui'){
+        pipeline.ci()
       }
-      
-      stage('Integration Test'){
-        mavenIntegrationTest {
-          environment = 'Test'
-          failIfNoTests = localFailIfNoTests
-          itestPattern = localItestPattern
-        }
+    } else if (utils.isCD()){
+      def branch
+      container('ui'){
+          branch = utils.getBranch()
+      }
+
+      def published
+      container('ui'){
+        published = pipeline.cd(branch)
+      }
+
+      def releaseVersion
+      container('ui'){
+          releaseVersion = utils.getLatestVersionFromTag()
+      }
+
+      if (published){
+        pipeline.updateDownstreamProjects(releaseVersion)
       }
     }
   }
