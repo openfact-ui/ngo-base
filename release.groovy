@@ -57,8 +57,8 @@ def npmReleaseOpenfact(body) {
     body.delegate = config
     body()
 
-    def gitEmail = config.gitEmail ?: 'openfact-admin@googlegroups.com'
-    def gitUserName = config.gitUserName ?: 'openfact-release'
+    def gitEmail = config.gitEmail ?: 'carlosthe19916@gmail.com'
+    def gitUserName = config.gitUserName ?: 'carlosthe19916'
     def branch = config.branch
 
     sh "git config user.email ${gitEmail}"
