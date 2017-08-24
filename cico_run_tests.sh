@@ -18,9 +18,9 @@ service docker start
 
 # Build builder image
 docker build -t ngo-base-builder -f Dockerfile.builder .
-mkdir -p dist && docker run --detach=true --name=ngo-base-builder -e "API_URL=http://demo.api.almighty.io/api/" -t -v $(pwd)/dist:/dist:Z ngo-base-builder
+mkdir -p dist && docker run --detach=true --name=ngo-base-builder -e "API_URL=http://demo.api.sync.io/api/" -t -v $(pwd)/dist:/dist:Z ngo-base-builder
 
-# Build almighty-ui
+# Build sync-ui
 docker exec ngo-base-builder npm install
 
 ## Exec unit tests
