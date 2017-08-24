@@ -25,14 +25,14 @@ fabric8UINode{
         published = pipeline.cd(branch)
       }
 
-      def releaseVersion
+      /*def releaseVersion
       container('ui'){
           releaseVersion = utils.getLatestVersionFromTag()
       }
 
       if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
-      }
+      }/*
     }
   }
 }
