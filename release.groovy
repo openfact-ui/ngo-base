@@ -30,6 +30,9 @@ def cd (b){
     }
 
     stage('release'){
+        sh 'touch /root/.ssh-git/ssh-key'
+        sh 'touch /root/.ssh-git/ssh-key.pub'
+
         def published = npmRelease{
             branch = b
         }
