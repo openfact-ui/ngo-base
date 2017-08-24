@@ -30,9 +30,9 @@ fabric8UINode{
           releaseVersion = utils.getLatestVersionFromTag()
       }
 
-      /*if (published){
+      if (published){
         pipeline.updateDownstreamProjects(releaseVersion)
-      }*/
+      }
     }
   }
 }
