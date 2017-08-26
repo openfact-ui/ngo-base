@@ -84,6 +84,6 @@ def npmReleaseOpenfact(body) {
         }
         return true
     }
-  }
+}
 
 return this
