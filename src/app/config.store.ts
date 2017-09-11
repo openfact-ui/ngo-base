@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/publishReplay';
 
 import { ValWrapper } from './val-wrapper';
 
@@ -34,7 +32,7 @@ export class ConfigStore {
             loading: false
           } as ValWrapper<T>;
         })
-        .do(config => console.log('Config loaded', config))
+        .do((config: any) => console.log('Config loaded', config))
         .publishReplay(1);
       this._cache.set(name, res);
       res.connect();
