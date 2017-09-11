@@ -32,7 +32,7 @@ export class ConfigStore {
             loading: false
           } as ValWrapper<T>;
         })
-        .do((config: any) => console.log('Config loaded', config))
+        .do(config => console.log('Config loaded', config))
         .publishReplay(1);
       this._cache.set(name, res);
       res.connect();
