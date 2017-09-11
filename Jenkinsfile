@@ -37,4 +37,3 @@ fabric8UINode{
     }
   }
 }
-
