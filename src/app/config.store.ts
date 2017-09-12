@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/publishReplay';
+import { Observable } from 'rxjs';
 
 import { ValWrapper } from './val-wrapper';
 

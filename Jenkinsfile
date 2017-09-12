@@ -1,9 +1,10 @@
 #!/usr/bin/groovy
 @Library('github.com/fabric8io/fabric8-pipeline-library@master')
+@Library('github.com/openfactio/openfact-pipeline-library@master')
 def utils = new io.fabric8.Utils()
 def org = 'openfact-ui'
 def repo = 'ngo-base'
-fabric8UINode{
+openfactUINode{
   ws {
     git "https://github.com/${org}/${repo}.git"
     readTrusted 'release.groovy'
@@ -22,7 +23,7 @@ fabric8UINode{
 
       def published
       container('ui'){
-        published = pipeline.cd(branch)        
+        published = pipeline.cd(branch)
       }
 
       def releaseVersion
