@@ -1,6 +1,6 @@
 {
   "name": "ngo-base",
-  "version": "0.0.0-development",
+  "version": "0.3.0",
   "description": "Common services for working with Openfact Work Item Tracker",
   "main": "bundles/ngo-base.umd.js",
   "module": "index.js",
