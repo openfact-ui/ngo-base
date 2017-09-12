@@ -4,7 +4,7 @@
 def utils = new io.fabric8.Utils()
 def org = 'openfact-ui'
 def repo = 'ngo-base'
-fabric8UINode{
+openfactUINode{
   ws {
     checkout scm
     readTrusted 'release.groovy'
