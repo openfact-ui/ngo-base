@@ -15,7 +15,7 @@ This library does not run on it's own. It must be imported.
 
 `npm install ngo-base`
 
-There are several services and a couple of models used by them available.
+There are several services and a couple of models used by them available. 
 
     Notifications
     Broadcaster
@@ -49,7 +49,7 @@ To build ngo-base as a npm library, use:
 npm run build
 ----
 
-Whilst the standalone build uses webpack the library build uses gulp.
+Whilst the standalone build uses webpack the library build uses gulp.  
 
 The created library is located in `dist`. You shouldn't ever publish the
 build manually, instead you should let the CD pipeline do a semantic release.
@@ -57,18 +57,18 @@ build manually, instead you should let the CD pipeline do a semantic release.
 ### Development
 
 To build ngo-base as an npm library and embed it into a webapp such as
-openfact-ui, you should:
+openfact-ui, you should:  
 
 1. Run `npm run watch:library` in this directory. This will build ngo-base as
 a library and then set up a watch task to rebuild any ts, html and scss files you
-change.
+change.  
 2. In the webapp into which you are embedding, run `npm link <path to ngo-base>/dist-watch`.
 This will create a symlink from `node_modules/ngo-base` to the `dist-watch` directory
 and install that symlinked node module into your webapp.
 3. Run your webapp in development mode, making sure you have a watch on `node_modules/ngo-base`
 enabled. To do this using a typical Angular Webpack setup, such as the one based on Angular Class,
 just run `npm start. You will have access to both JS sourcemaps and SASS sourcemaps if your webapp
-is properly setup.
+is properly setup. 
 
 Note that `openfact-ui` is setup to do reloading and sourcemaps automatically when you
 run `npm start`.

@@ -6,9 +6,10 @@ def org = 'openfact-ui'
 def repo = 'ngo-base'
 fabric8UINode{
   ws {
-    git "https://github.com/${org}/${repo}.git"
+    checkout scm
+
     readTrusted 'release.groovy'
-    sh "git remote set-url origin git@github.com:${org}/${repo}.git"
+
     def pipeline = load 'release.groovy'
 
     if (utils.isCI()){
@@ -16,6 +17,12 @@ fabric8UINode{
         pipeline.ci()
       }
     } else if (utils.isCD()){
+      env.CI=true
+      env.GIT_BRANCH="origin/master"
+      sh "git checkout master"
+      sh "git pull"
+      sh "git remote set-url origin git@github.com:${org}/${repo}.git"
+
       def branch
       container('ui'){
           branch = utils.getBranch()
